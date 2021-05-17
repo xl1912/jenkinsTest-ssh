@@ -7,11 +7,11 @@ node() {
     def dateFormat = new SimpleDateFormat("yyyyMMddHHmm")
     def dockerTag = dateFormat.format(new Date())
 
-    // 个人阿里云镜像仓库地址及命名空间
+    // 个人阿里云镜像仓库地址及命名空间，需要换成自己的阿里云对应地址！！！
     def registry = 'registry.cn-beijing.aliyuncs.com'
     def aliyunNamespace = 'marco_images/image-test'
 
-    // 部署项目的服务器ip
+    // 部署项目的服务器ip, 需要换成自己的服务器ip！！！
     def sshIP = '8.140.26.173'
     def dockerName = 'marco-test'
 
