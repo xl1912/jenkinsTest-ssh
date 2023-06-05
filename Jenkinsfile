@@ -9,7 +9,7 @@ node() {
 
     // 个人阿里云镜像仓库地址及命名空间，需要换成自己的阿里云对应地址！！！
     def registry = 'registry.cn-beijing.aliyuncs.com'
-    def aliyunNamespace = 'marco_images/image:'
+    def aliyunNamespace = 'marco_images/image-test'
 
     // 部署项目的服务器ip, 需要换成自己的服务器ip！！！
     def sshIP = '10.100.66.3'
