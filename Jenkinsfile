@@ -8,7 +8,7 @@ node() {
     def dockerTag = dateFormat.format(new Date())
 
     // 个人阿里云镜像仓库地址及命名空间，需要换成自己的阿里云对应地址！！！
-    def registry = 'registry.cn-beijing.aliyuncs.com'
+    def registry = 'registry.cn-hangzhou.aliyuncs.com'
     def aliyunNamespace = 'private_xl/image-backup'
 
     // 部署项目的服务器ip, 需要换成自己的服务器ip！！！
