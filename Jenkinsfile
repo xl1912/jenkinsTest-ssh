@@ -61,6 +61,7 @@ node() {
             }
         }
     }
+ 
 
     stage('ssh server & pull image'){
        withCredentials([usernamePassword(credentialsId: 'jenkins_login_aliyun_docker', usernameVariable: 'username', passwordVariable: 'password')]) {
@@ -82,6 +83,7 @@ node() {
         catch(err){
             echo "remote & pull image failed"
             throw err
+            }
         }
     }
 }
@@ -97,6 +99,5 @@ def getServer(ip){
         remote.password = "${password}"
     }
     return remote
-}
 }
     
