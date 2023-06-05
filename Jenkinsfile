@@ -98,4 +98,3 @@ def getServer(ip){
     }
     return remote
 }
-1
