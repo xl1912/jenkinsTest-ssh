@@ -69,7 +69,7 @@ node() {
             // 连接远程服务器
             def sshServer = getServer(sshIP)
             // 连接阿里云仓库
-            
+             sh "docker login -u ${username} -p ${password} ${registry}"
             // 更新或下载镜像
             sshCommand remote: sshServer, command: "docker pull ${registry}/${aliyunNamespace}:${dockerTag}"
             
