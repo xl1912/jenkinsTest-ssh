@@ -12,8 +12,8 @@ node() {
     def aliyunNamespace = 'private_xl/image-backup'
 
     // 部署项目的服务器ip, 需要换成自己的服务器ip！！！
-    def sshIP = '10.100.66.3'
-    def dockerName = 'marco-test'
+    def sshIP = ''
+    def dockerName = 'web-test'
 
     stage('get souce code') {
         try {
@@ -92,7 +92,7 @@ def getServer(ip){
     def remote = [:]
     remote.name = "server-${ip}"
     remote.host = ip
-    remote.port = 12013
+    remote.port = 22
     remote.allowAnyHosts = true
     withCredentials([usernamePassword(credentialsId: 'ssh_remote_server', passwordVariable: 'password', usernameVariable: 'username')]) {
         remote.user = "${username}"
