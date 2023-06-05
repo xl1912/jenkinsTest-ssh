@@ -12,7 +12,7 @@ node() {
     def aliyunNamespace = 'marco_images/image-test'
 
     // 部署项目的服务器ip, 需要换成自己的服务器ip！！！
-    def sshIP = '8.140.26.173'
+    def sshIP = '10.100.66.3'
     def dockerName = 'marco-test'
 
     stage('get souce code') {
@@ -72,7 +72,7 @@ node() {
             // 停止并删除容器
             sshCommand remote: sshServer, command: "docker rm -f ${dockerName}"
             // 启动
-            sshCommand remote: sshServer, command: "docker run -u root --name ${dockerName} -p 80:80 -d ${registry}/${aliyunNamespace}:${dockerTag}"
+            sshCommand remote: sshServer, command: "docker run -u root --name ${dockerName} -p 3000:80 -d ${registry}/${aliyunNamespace}:${dockerTag}"
             // 只保留3个最新的镜像
             sshCommand remote: sshServer, command: """docker rmi -f \$(docker images | grep ${registry}/${aliyunNamespace} | sed -n  '4,\$p' | awk '{print \$3}') || true"""
         }
@@ -87,7 +87,7 @@ def getServer(ip){
     def remote = [:]
     remote.name = "server-${ip}"
     remote.host = ip
-    remote.port = 22
+    remote.port = 12013
     remote.allowAnyHosts = true
     withCredentials([usernamePassword(credentialsId: 'ssh_remote_server', passwordVariable: 'password', usernameVariable: 'username')]) {
         remote.user = "${username}"
