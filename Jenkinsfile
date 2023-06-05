@@ -74,7 +74,7 @@ node() {
             sshCommand remote: sshServer, command: "docker pull ${registry}/${aliyunNamespace}:${dockerTag}"
             
             // 停止并删除容器
-            sshCommand remote: sshServer, command: "docker rm -f ${dockerName}"
+            sshCommand remote: sshServer, command: "docker rm -f ${dockerName} ; true"
             // 启动
             sshCommand remote: sshServer, command: "docker run -u root --name ${dockerName} -p 3000:80 -d ${registry}/${aliyunNamespace}:${dockerTag}"
             // 只保留3个最新的镜像
