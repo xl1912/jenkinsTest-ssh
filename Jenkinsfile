@@ -63,7 +63,7 @@ node() {
     }
 
     stage('ssh server & pull image'){
-       
+       withCredentials([usernamePassword(credentialsId: 'jenkins_login_aliyun_docker', usernameVariable: 'username', passwordVariable: 'password')]) {
         try {
             // 连接远程服务器
             def sshServer = getServer(sshIP)
